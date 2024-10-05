@@ -94,8 +94,11 @@ namespace DelaunayVoronoi
 
         public bool IsPointInsideCircumcircle(Point point)
         {
-            var d_squared = (point.X - Circumcenter.X) * (point.X - Circumcenter.X) +
-                (point.Y - Circumcenter.Y) * (point.Y - Circumcenter.Y);
+            var dx = point.X - Circumcenter.X;
+            var dy = point.Y - Circumcenter.Y;
+            
+            var d_squared = dx * dx + dy * dy;
+            
             return d_squared < RadiusSquared;
         }
     }
